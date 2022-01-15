@@ -15,30 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-import frc.robot.commands.FirePoseVision;
-import frc.robot.commands.IngestPose;
 import frc.robot.commands.InvalidButton;
-import frc.robot.commands.RobotSetFar;
-import frc.robot.commands.RobotSetMid;
-import frc.robot.commands.RobotSetNear;
-import frc.robot.commands.RobotSetVeryFar;
-import frc.robot.commands.PKParallelCommandGroup;
-import frc.robot.commands.ballevator.BallevatorLift;
-import frc.robot.commands.ballevator.BallevatorLower;
-import frc.robot.commands.climber.ClimberClimb;
-import frc.robot.commands.climber.ClimberExtend;
-import frc.robot.commands.climber.ClimberRetractInPit;
 import frc.robot.commands.drive.DriveSwap;
-import frc.robot.commands.shooter.ShooterEnableSpin;
-import frc.robot.commands.shooter.ShooterSpinUpFormula;
-import frc.robot.commands.turret.TurretPositionBack;
-import frc.robot.commands.turret.TurretPositionFront;
-import frc.robot.commands.turret.TurretRotateCCW;
-import frc.robot.commands.turret.TurretRotateCW;
-import frc.robot.commands.turret.TurretPositionRight;
-import frc.robot.commands.turret.TurretVisionAlign;
-import frc.robot.commands.wheel.WheelRunClockwise;
-import frc.robot.commands.wheel.WheelRunCounterClockwise;
 import frc.robot.telemetry.ITelemetryProvider;
 import frc.robot.telemetry.TelemetryNames;
 
@@ -85,31 +63,9 @@ public class OI implements ITelemetryProvider {
     private final Button crawlButton;
     private final Button driveSwapButton;
     // Only in the pits
-    private final Button pitClimberEnableButton;
-    private final Button pitClimberRetractButton;
-
     private final Joystick operatorStick;
-    private final Button firePoseButton;
-    private final Button shooterRevButton;
-    private final Button fieldPositionFarButton;
-    private final Button fieldPositionMidButton;
-    private final Button fieldPositionNearButton;
-    private final Button ballevatorUpButton;
-    private final Button ballevatorDownButton;
-    private final Button turretOrientationBackButton;
-    private final Button turretOrientationRightButton;
-    private final Button turretOrientationFrontButton;
-    private final Button turretJogClockwiseButton;
-    private final Button turretJogCounterClockwiseButton;
-    private final Button visionEnableButton;
-    private final Button wheelClockwiseButton; // 14 - wheelPositionButton
-    private final Button wheelCounterClockwiseButton; // 15 - wheelRotationButton
-    private final Button turretHomeButton;
     private final Button reserved17Button;
     private final Button reserved18Button;
-    private final Button climberExtendButton;
-    private final Button climberClimbButton;
-
     private OI() {
         logger.info("constructing {}", myName);
 
@@ -117,31 +73,10 @@ public class OI implements ITelemetryProvider {
         turboButton = new JoystickButton(driverStick, 5);
         crawlButton = new JoystickButton(driverStick, 6);
         driveSwapButton = new JoystickButton(driverStick, 3);
-        // Only for use in the pit
-        pitClimberRetractButton = new JoystickButton(driverStick, 7);
-        pitClimberEnableButton = new JoystickButton(driverStick, 8);
 
         operatorStick = new Joystick(1);
-        firePoseButton = new JoystickButton(operatorStick, 1);
-        shooterRevButton = new JoystickButton(operatorStick, 2);
-        fieldPositionFarButton = new JoystickButton(operatorStick, 3);
-        fieldPositionMidButton = new JoystickButton(operatorStick, 5);
-        fieldPositionNearButton = new JoystickButton(operatorStick, 4);
-        ballevatorUpButton = new JoystickButton(operatorStick, 6);
-        ballevatorDownButton = new JoystickButton(operatorStick, 7);
-        turretOrientationBackButton = new JoystickButton(operatorStick, 8);
-        turretOrientationRightButton = new JoystickButton(operatorStick, 9);
-        turretOrientationFrontButton = new JoystickButton(operatorStick, 10);
-        turretJogClockwiseButton = new JoystickButton(operatorStick, 11);
-        turretJogCounterClockwiseButton = new JoystickButton(operatorStick, 12);
-        visionEnableButton = new JoystickButton(operatorStick, 13);
-        wheelClockwiseButton = new JoystickButton(operatorStick, 14);
-        wheelCounterClockwiseButton = new JoystickButton(operatorStick, 15);
-        turretHomeButton = new JoystickButton(operatorStick, 16);
         reserved17Button = new JoystickButton(operatorStick, 17);
         reserved18Button = new JoystickButton(operatorStick, 18);
-        climberExtendButton = new JoystickButton(operatorStick, 19);
-        climberClimbButton = new JoystickButton(operatorStick, 20);
 
         logger.info("constructed");
     }
@@ -161,64 +96,6 @@ public class OI implements ITelemetryProvider {
         // turboButton - implemented in getting values speed & turn
         // crawlButton - implemented in getting values speed & turn
         driveSwapButton.whenPressed(new DriveSwap());
-
-        pitClimberRetractButton.whenHeld(new ClimberRetractInPit());
-
-        /*
-         * Vision
-         */
-        visionEnableButton.whenHeld(new PKParallelCommandGroup(new TurretVisionAlign(), new ShooterSpinUpFormula()));
-
-        /*
-         * Field Position
-         */
-        fieldPositionFarButton.whenPressed(new RobotSetFar());
-        fieldPositionMidButton.whenPressed(new RobotSetMid());
-        fieldPositionNearButton.whenPressed(new RobotSetNear());
-
-        /*
-         * Ballevator
-         */
-        ballevatorUpButton.whenHeld(new BallevatorLift());
-        ballevatorDownButton.whenHeld(new BallevatorLower());
-
-        /*
-         * Turret
-         */
-        // turretHomeButton.whenPressed(new TurretHome());
-        turretHomeButton.whenPressed(new RobotSetVeryFar());
-        turretOrientationBackButton.whenPressed(new TurretPositionBack());
-        turretOrientationRightButton.whenPressed(new TurretPositionRight());
-        turretOrientationFrontButton.whenPressed(new TurretPositionFront());
-        // turretJogClockwiseButton.whenPressed(new TurretJogCW());
-        // turretJogCounterClockwiseButton.whenPressed(new TurretJogCCW());
-        turretJogClockwiseButton.whenHeld(new TurretRotateCW());
-        turretJogCounterClockwiseButton.whenHeld(new TurretRotateCCW());
-
-        /*
-         * Shooter
-         */
-        shooterRevButton.whenHeld(new ShooterEnableSpin());
-
-        /*
-         * Climber
-         */
-        // climberExtendButton.whenPressed(new ClimberExtend());
-        climberExtendButton.whenHeld(new ClimberExtend());
-        climberClimbButton.whenHeld(new ClimberClimb());
-
-        /*
-         * Poses
-         */
-        firePoseButton.whenHeld(new FirePoseVision());
-        firePoseButton.whenReleased(new ShooterEnableSpin());
-
-        /*
-         * Wheel
-         */
-
-        wheelClockwiseButton.whenHeld(new WheelRunClockwise());
-        wheelCounterClockwiseButton.whenHeld(new WheelRunCounterClockwise());
 
         /*
          * Reserved
@@ -285,66 +162,6 @@ public class OI implements ITelemetryProvider {
         return calcTurn;
     }
 
-    /*****************
-     * Power Cells
-     *****************/
-
-    public double getIntakeSpeed() {
-        return deadBand(getDriverTriggerAxis(), 0.05);
-    }
-
-    public boolean getHopperActive() {
-        return deadBand(getDriverTriggerAxis(), 0.05) != 0;
-    }
-
-    public boolean getBallevatorActive() {
-        return deadBand(getDriverTriggerAxis(), 0.05) > 0;
-    }
-
-    /*****************
-     * Turret
-     *****************/
-
-    public double getRawTurretSpeed() {
-        return deadBand(getOperatorLeftXAxis(), 0.05);
-    }
-
-    public double getTurretSpeed() {
-        // FIXME - No longer same button scheme or manual control
-        final double hmiSpeed = getRawTurretSpeed();
-        double calcSpeed;
-        // if (turretTurboButton.get()) {
-        // calcSpeed = hmiSpeed * 0.35;
-        // } else {
-        calcSpeed = hmiSpeed * 0.15;
-        // }
-        return calcSpeed;
-    }
-
-    public double getTurretFineAdjustment() {
-        return deadBand(getOperatorPotentiometer2(), 0.05);
-    }
-
-    /*****************
-     * Shooter
-     *****************/
-
-    public double getShooterSpeed() {
-        return deadBand(getOperatorRightYAxis(), 0.05);
-    }
-
-    public double getShooterFineAdjustment() {
-        return deadBand(getOperatorPotentiometer3(), 0.05);
-    }
-
-    /*****************
-     * Climber
-     *****************/
-
-    public boolean getClimberRetractEnable() {
-        return pitClimberEnableButton.get();
-    }
-
     /**
      * 
      * Lifted from:
@@ -364,17 +181,6 @@ public class OI implements ITelemetryProvider {
         return retValue;
     }
 
-    //////////////////////////////////////////////////////////////////
-    // TODO - Finish cleaning up these
-    //////////////////////////////////////////////////////////////////
-
-    public double getTurretIncrement() {
-        return getOperatorTriggerAxis();
-    }
-
-    public boolean isShooterRevEnabled() {
-        return shooterRevButton.get();
-    }
 
     //////////////////////////////////////////////////////////////////
     // TODO - Finish cleaning up these

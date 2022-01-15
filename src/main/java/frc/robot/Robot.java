@@ -18,12 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-import frc.robot.commands.AutoFullShort;
-import frc.robot.commands.AutoFullTrench;
 import frc.robot.commands.DoNothing;
-import frc.robot.commands.PKSequentialCommandGroup;
-import frc.robot.commands.drive.DriveForwardTimed;
-import frc.robot.commands.turret.TurretHome;
 import frc.robot.modules.IModule;
 import frc.robot.modules.ModuleFactory;
 import frc.robot.preferences.PreferencesInitializer;
@@ -169,9 +164,6 @@ public class Robot extends TimedRobot {
         autoChooser = new SendableChooser<>();
 
         autoChooser.addOption("Do Nothing", new DoNothing());
-        autoChooser.addOption("Full Auto (Trench)", new AutoFullTrench());
-        autoChooser.setDefaultOption("Full Auto (Short)", new AutoFullShort());
-        autoChooser.addOption("Drive Forward (timed)", new DriveForwardTimed());
 
         SmartDashboard.putData("Auto Mode", autoChooser);
     }
@@ -312,7 +304,7 @@ public class Robot extends TimedRobot {
         autoCommand = autoChooser.getSelected();
         logger.info("auto command is {}", autoCommand.getName());
         if (autoCommand != null) {
-            CommandScheduler.getInstance().schedule(true, new PKSequentialCommandGroup(new TurretHome(), autoCommand));
+            CommandScheduler.getInstance().schedule(true, autoCommand);
         }
 
         logger.info("initialized autonomous");

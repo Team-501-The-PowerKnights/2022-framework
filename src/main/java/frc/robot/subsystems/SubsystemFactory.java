@@ -14,14 +14,7 @@ import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import frc.robot.subsystems.ballevator.BallevatorFactory;
-import frc.robot.subsystems.climber.ClimberFactory;
 import frc.robot.subsystems.drive.DriveFactory;
-import frc.robot.subsystems.hopper.HopperFactory;
-import frc.robot.subsystems.intake.IntakeFactory;
-import frc.robot.subsystems.shooter.ShooterFactory;
-import frc.robot.subsystems.turret.TurretFactory;
-import frc.robot.subsystems.wheel.WheelFactory;
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.telemetry.TelemetryManager;
 import frc.robot.utils.PKStatus;
@@ -51,74 +44,6 @@ public class SubsystemFactory {
         {
             DriveFactory.constructInstance();
             ISubsystem ss = DriveFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        /***************
-         * Power Cells
-         ***************/
-
-        SmartDashboard.putNumber(TelemetryNames.Intake.status, PKStatus.unknown.tlmValue);
-        {
-            IntakeFactory.constructInstance();
-            ISubsystem ss = IntakeFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        SmartDashboard.putNumber(TelemetryNames.Hopper.status, PKStatus.unknown.tlmValue);
-        {
-            HopperFactory.constructInstance();
-            ISubsystem ss = HopperFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        SmartDashboard.putNumber(TelemetryNames.Ballevator.status, PKStatus.unknown.tlmValue);
-        {
-            BallevatorFactory.constructInstance();
-            ISubsystem ss = BallevatorFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        SmartDashboard.putNumber(TelemetryNames.Shooter.status, PKStatus.unknown.tlmValue);
-        {
-            TurretFactory.constructInstance();
-            ISubsystem ss = TurretFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        SmartDashboard.putNumber(TelemetryNames.Shooter.status, PKStatus.unknown.tlmValue);
-        {
-            ShooterFactory.constructInstance();
-            ISubsystem ss = ShooterFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        /***************
-         * Control Panel
-         ***************/
-
-        SmartDashboard.putNumber(TelemetryNames.Wheel.status, PKStatus.unknown.tlmValue);
-        {
-            WheelFactory.constructInstance();
-            ISubsystem ss = WheelFactory.getInstance();
-            tlmMgr.addProvider(ss);
-            subsystems.add(ss);
-        }
-
-        /***************
-         * Climber
-         ***************/
-
-        SmartDashboard.putNumber(TelemetryNames.Climber.status, PKStatus.unknown.tlmValue);
-        {
-            ClimberFactory.constructInstance();
-            ISubsystem ss = ClimberFactory.getInstance();
             tlmMgr.addProvider(ss);
             subsystems.add(ss);
         }
