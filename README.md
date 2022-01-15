@@ -2,9 +2,9 @@
 	<a href="http://powerknights.com/">
 		<img src="./black-powerKnights-logo.png" width="200" height="200">
 	</a>
-	<h1>2020-Robot</h1>
+	<h1>Framework Bot</h1>
 	<p>
-		<b>🤖 Source code for the 2020 robot playing Infinite Recharge</b>
+		<b>🤖 Framework code used for each year's robot</b>
 	</p>
     <a href="https://twitter.com/PowerKnights501"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/PowerKnights501?style=social"></a>
     <br>
@@ -16,10 +16,6 @@
 	<br>
 </div>
 
-# 2020-robot
-
-Core application for Team 501 The PowerKnights' robot.
-
 # Contributing
 
 See `CONTRIBUTING.md` for more information
@@ -28,4 +24,4 @@ See `CONTRIBUTING.md` for more information
 
 This project is licensed under the BSD-2 license.
 <br>
-&copy; 2020 Team 501 - The PowerKnights. Please see `LICENSE` for full license details.
+&copy; 2022 Team 501 - The PowerKnights. Please see `LICENSE` for full license details.
