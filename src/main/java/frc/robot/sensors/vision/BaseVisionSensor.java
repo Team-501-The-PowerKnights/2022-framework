@@ -8,11 +8,13 @@
 
 package frc.robot.sensors.vision;
 
+
 import org.slf4j.Logger;
 
 import frc.robot.telemetry.TelemetryNames;
 
 import riolog.RioLogger;
+
 
 abstract class BaseVisionSensor implements IVisionSensor {
 

@@ -8,6 +8,7 @@
 
 package frc.robot.sensors.gyro;
 
+
 import com.kauailabs.navx.frc.AHRS;
 
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.SPI;
 
 import riolog.RioLogger;
+
 
 /**
  * A wrapper class around the navX-MXP sensor so some of the method calls which

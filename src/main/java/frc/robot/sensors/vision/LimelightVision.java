@@ -8,6 +8,7 @@
 
 package frc.robot.sensors.vision;
 
+
 import org.slf4j.Logger;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -16,6 +17,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import riolog.RioLogger;
+
 
 /**
  * Wrapper for the Limelight Vision Sensor to provide ease when switching from

@@ -8,9 +8,11 @@
 
 package frc.robot.sensors.vision;
 
+
 import org.slf4j.Logger;
 
 import riolog.RioLogger;
+
 
 /**
  * Provides implementation of <code>IVisionSensor</code> which has no sensor or

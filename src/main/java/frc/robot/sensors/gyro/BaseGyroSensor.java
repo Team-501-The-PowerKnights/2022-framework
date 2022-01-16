@@ -7,6 +7,7 @@
 /*-----------------------------------------------------------------------*/
 package frc.robot.sensors.gyro;
 
+
 import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.telemetry.TelemetryNames;
 
 import riolog.RioLogger;
+
 
 abstract class BaseGyroSensor implements IGyroSensor {
 

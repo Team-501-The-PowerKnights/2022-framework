@@ -6,7 +6,12 @@
 /* of this project.                                                      */
 /*-----------------------------------------------------------------------*/
 
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 package frc.robot;
+
 
 import java.util.List;
 
@@ -35,6 +40,7 @@ import frc.robot.subsystems.ISubsystem;
 import frc.robot.subsystems.SubsystemFactory;
 
 import riolog.RioLogger;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
