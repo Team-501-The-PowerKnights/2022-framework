@@ -11,11 +11,18 @@ package frc.robot.utils;
 
 import java.util.List;
 
+import riolog.PKLogger;
+import riolog.RioLogger;
+
 
 /**
  * Contains basic functions that are used often.
  */
 public final class HelperFunctions {
+
+    /* Our classes logger */
+    @SuppressWarnings("unused")
+    private static final PKLogger logger = RioLogger.getLogger(HelperFunctions.class.getName());
 
    /** Prevent this class from being instantiated. */
    private HelperFunctions() {

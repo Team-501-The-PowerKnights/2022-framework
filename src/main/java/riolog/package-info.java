@@ -6,26 +6,14 @@
 /* of this project.                                                      */
 /*-----------------------------------------------------------------------*/
 
-package frc.robot.sensors.wheelcolor;
-
-
-import riolog.PKLogger;
-import riolog.RioLogger;
-
-
 /**
- * Provides implementation of <code>IWheelColorSensor</code> for the
- * <i>Real-Bot</i> which is based on the REV Robotics color sensor.
- */
-class WheelColorSensor extends SuitcaseWheelColorSensor {
-
-    /** Our classes' logger **/
-    private static final PKLogger logger = RioLogger.getLogger(WheelColorSensor.class.getName());
-
-    WheelColorSensor() {
-        logger.info("constructing");
-
-        logger.info("constructed");
-    }
-
-}
+ * Classes to wrap a 3rd party logger implementation in a way that is
+ * transparent to the rest of the code using it.
+ * <p>
+ * These classes currently wrap the SLF4J logger framework and use the
+ * implementation from the Logback Classic package.
+ * </p>
+ * 
+ * @since 2022
+ **/
+package riolog;

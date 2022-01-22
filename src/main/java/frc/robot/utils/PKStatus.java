@@ -9,8 +9,7 @@
 package frc.robot.utils;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -23,7 +22,7 @@ public class PKStatus {
 
     /* Our classes logger */
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(PKStatus.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PKStatus.class.getName());
 
     public final double tlmValue;
 

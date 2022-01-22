@@ -9,10 +9,9 @@
 package frc.robot.sensors.wheelcolor;
 
 
-import org.slf4j.Logger;
-
 import frc.robot.utils.PKColor;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -24,7 +23,7 @@ import riolog.RioLogger;
 class StubWheelColorSensor extends BaseWheelColorSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(StubWheelColorSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(StubWheelColorSensor.class.getName());
 
     StubWheelColorSensor() {
         logger.info("constructing");

@@ -11,18 +11,17 @@ package frc.robot.subsystems.drive;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class StubDriveSubsystem extends BaseDriveSubsystem {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(SuitcaseDriveSubsystem.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(SuitcaseDriveSubsystem.class.getName());
 
     StubDriveSubsystem() {
         logger.info("constructing");

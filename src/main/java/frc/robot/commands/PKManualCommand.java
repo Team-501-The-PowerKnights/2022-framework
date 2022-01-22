@@ -9,10 +9,9 @@
 package frc.robot.commands;
 
 
-import org.slf4j.Logger;
-
 import frc.robot.OI;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -22,7 +21,7 @@ import riolog.RioLogger;
 public abstract class PKManualCommand extends PKCommandBase {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(PKManualCommand.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PKManualCommand.class.getName());
 
     // Handle to the OI object for access to joysticks
     protected final OI oi;

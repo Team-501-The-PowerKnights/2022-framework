@@ -9,14 +9,12 @@
 package frc.robot.commands.drive;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
-
 
 /**
  * Add your docs here.
@@ -24,7 +22,7 @@ import riolog.RioLogger;
 public class DriveForwardDistance extends DriveCommandBase {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(DriveForwardDistance.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveForwardDistance.class.getName());
 
     // Distance to drive (from current position) in clicks
     private double distanceClicks;

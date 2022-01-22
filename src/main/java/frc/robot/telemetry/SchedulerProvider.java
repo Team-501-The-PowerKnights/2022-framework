@@ -9,8 +9,6 @@
 package frc.robot.telemetry;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -20,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -29,7 +28,7 @@ import riolog.RioLogger;
 public class SchedulerProvider implements ITelemetryProvider {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(SchedulerProvider.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(SchedulerProvider.class.getName());
 
     /** Singleton instance of class for all to use **/
     private static SchedulerProvider ourInstance;

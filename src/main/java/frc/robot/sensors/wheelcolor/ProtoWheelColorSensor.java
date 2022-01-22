@@ -9,8 +9,7 @@
 package frc.robot.sensors.wheelcolor;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -21,7 +20,7 @@ import riolog.RioLogger;
 class ProtoWheelColorSensor extends SuitcaseWheelColorSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(ProtoWheelColorSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(ProtoWheelColorSensor.class.getName());
 
     ProtoWheelColorSensor() {
         logger.info("constructing");

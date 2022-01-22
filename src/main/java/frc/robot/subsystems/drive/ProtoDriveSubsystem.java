@@ -16,8 +16,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -39,13 +37,14 @@ import edu.wpi.first.wpilibj2.command.RamseteCommand;
 import frc.robot.sensors.gyro.GyroFactory;
 import frc.robot.sensors.gyro.IGyroSensor;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class ProtoDriveSubsystem extends BaseDriveSubsystem {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(ProtoDriveSubsystem.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(ProtoDriveSubsystem.class.getName());
 
     /**
      * Drive Constants

@@ -12,8 +12,6 @@ package frc.robot.sensors;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.sensors.gyro.GyroFactory;
@@ -24,6 +22,7 @@ import frc.robot.telemetry.TelemetryManager;
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -33,7 +32,7 @@ import riolog.RioLogger;
 public class SensorFactory {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(SensorFactory.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(SensorFactory.class.getName());
 
     public static List<ISensor> constructSensors() {
         logger.info("constructing");

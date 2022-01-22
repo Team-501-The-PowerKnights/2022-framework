@@ -12,12 +12,12 @@ package frc.robot.preferences;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.Preferences;
 
 import frc.robot.preferences.PreferenceNames.*;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -27,7 +27,7 @@ import riolog.RioLogger;
 public class PreferencesInitializer {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(PreferencesInitializer.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PreferencesInitializer.class.getName());
 
     public static void initialize() {
         logger.info("initializing");

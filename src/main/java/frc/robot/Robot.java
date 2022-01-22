@@ -15,8 +15,6 @@ package frc.robot;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -39,6 +37,7 @@ import frc.robot.utils.PKStatus;
 import frc.robot.subsystems.ISubsystem;
 import frc.robot.subsystems.SubsystemFactory;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -52,7 +51,7 @@ import riolog.RioLogger;
 public class Robot extends TimedRobot {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(Robot.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(Robot.class.getName());
 
     private OI oi;
 

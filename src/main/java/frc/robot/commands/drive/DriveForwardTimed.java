@@ -9,8 +9,7 @@
 package frc.robot.commands.drive;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -20,7 +19,7 @@ import riolog.RioLogger;
 public class DriveForwardTimed extends DriveCommandBase {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(DriveForwardTimed.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveForwardTimed.class.getName());
 
     //
     private long executeCount;

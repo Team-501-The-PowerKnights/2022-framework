@@ -11,12 +11,11 @@ package frc.robot.sensors.gyro;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.SPI;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -27,7 +26,7 @@ import riolog.RioLogger;
 class AHRSGyro {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(AHRSGyro.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(AHRSGyro.class.getName());
 
     AHRS ahrs;
 

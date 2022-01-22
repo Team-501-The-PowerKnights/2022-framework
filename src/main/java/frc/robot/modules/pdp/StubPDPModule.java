@@ -9,15 +9,14 @@
 package frc.robot.modules.pdp;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class StubPDPModule extends BasePDPModule {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(StubPDPModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(StubPDPModule.class.getName());
 
     public StubPDPModule() {
         logger.info("constructing");

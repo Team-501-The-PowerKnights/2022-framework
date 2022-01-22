@@ -9,21 +9,20 @@
 package frc.robot.modules.pdp;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class PDPModule extends BasePDPModule {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(PDPModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PDPModule.class.getName());
 
     private final PowerDistribution pdp;
 

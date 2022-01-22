@@ -13,12 +13,11 @@ import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.I2C;
 
 import frc.robot.utils.PKColor;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -29,7 +28,7 @@ import riolog.RioLogger;
 class SuitcaseWheelColorSensor extends BaseWheelColorSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(SuitcaseWheelColorSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(SuitcaseWheelColorSensor.class.getName());
 
     // Handle to the hardware sensor
     private final ColorSensorV3 mySensor;

@@ -9,12 +9,17 @@
 package frc.robot.config;
 
 /**
- * This class provides a code versioning string that can be used to determine the
+ * This class provides a versioning string that can be used to determine the
  * build pedigree of a robot as loaded on the roboRIO.
  **/
-class CodeVersionInfo {
+public class VersionInfo {
 
     // Provides a version string that gets incorporated into build
-    public static final String version = "2022.0.0.0";
-
+    public static final String version = 
+        new StringBuilder("").
+        append("501-Robot").append(" ").
+        append(CodeVersionInfo.version).append(" ").
+        append(BuildVersionInfo.programmer).append(" ").
+        append(BuildVersionInfo.timeStamp).append(" ").
+        append(BuildVersionInfo.commitSHA).toString();
 }

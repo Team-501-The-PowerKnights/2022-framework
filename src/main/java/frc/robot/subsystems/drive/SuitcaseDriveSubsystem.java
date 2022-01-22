@@ -14,20 +14,19 @@ import java.util.List;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class SuitcaseDriveSubsystem extends BaseDriveSubsystem {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(SuitcaseDriveSubsystem.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(SuitcaseDriveSubsystem.class.getName());
 
     private final TalonSRX leftFrontMotor;
     private final TalonSRX leftRearMotor;

@@ -9,10 +9,9 @@
 package frc.robot.sensors.turretlocation;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.DigitalInput;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -23,7 +22,7 @@ import riolog.RioLogger;
 class TurretLocationSensor extends BaseTurretLocationSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(TurretLocationSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(TurretLocationSensor.class.getName());
 
     private DigitalInput location;
 

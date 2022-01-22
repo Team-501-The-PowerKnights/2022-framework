@@ -9,8 +9,7 @@
 package frc.robot.modules.rpi;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -20,7 +19,7 @@ import riolog.RioLogger;
 class StubRPIModule extends BaseRPIModule {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(StubRPIModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(StubRPIModule.class.getName());
 
     public StubRPIModule() {
         logger.info("constructing");

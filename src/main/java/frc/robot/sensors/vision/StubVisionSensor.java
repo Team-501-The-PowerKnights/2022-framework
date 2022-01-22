@@ -9,8 +9,7 @@
 package frc.robot.sensors.vision;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -22,7 +21,7 @@ import riolog.RioLogger;
 class StubVisionSensor extends BaseVisionSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(StubVisionSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(StubVisionSensor.class.getName());
 
     StubVisionSensor() {
         logger.info("constructing");

@@ -9,13 +9,12 @@
 package frc.robot;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import frc.robot.config.CodeVersionInfo;
+import frc.robot.config.VersionInfo;
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -29,7 +28,7 @@ import riolog.RioLogger;
 public class Team501Robot extends Robot {
 
    /** Our classes' logger **/
-   private static final Logger logger = RioLogger.getLogger(Team501Robot.class.getName());
+   private static final PKLogger logger = RioLogger.getLogger(Team501Robot.class.getName());
 
    private static final String programmer = "Caleb";
 
@@ -39,8 +38,8 @@ public class Team501Robot extends Robot {
       SmartDashboard.putString(TelemetryNames.Misc.programmer, programmer);
       logger.info("programmer={}", programmer);
 
-      SmartDashboard.putString(TelemetryNames.Misc.codeVersion, CodeVersionInfo.version);
-      logger.info("codeVersion={}", CodeVersionInfo.version);
+      SmartDashboard.putString(TelemetryNames.Misc.codeVersion, VersionInfo.version);
+      logger.info("codeVersion={}", VersionInfo.version);
 
       logger.info("constructed");
    }

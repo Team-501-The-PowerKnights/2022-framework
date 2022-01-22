@@ -9,8 +9,7 @@
 package frc.robot.commands;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -20,7 +19,7 @@ import riolog.RioLogger;
 public class InvalidButton extends PKCommandBase {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(InvalidButton.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(InvalidButton.class.getName());
 
     // Something for unique identification
     @SuppressWarnings("unused")

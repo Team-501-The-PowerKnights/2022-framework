@@ -27,6 +27,10 @@ import ch.qos.logback.core.FileAppender;
 public class RioLogger
 {
 
+   // LOGGER Setting for default level
+   //private static final Level defaultLevel = Level.DEBUG.level;
+   private static final Level defaultLevel = Level.TRACE;
+
    private static final String logMountPoint = "/media/sda1/";
    private static final String logDirName = "501logs/";
    private static final String logFileName = "logfile-";
@@ -67,7 +71,7 @@ public class RioLogger
    }
 
 
-   public static Logger getLogger( String loggerName )
+   public static PKLogger getLogger( String loggerName )
    {
       final ch.qos.logback.classic.Logger logger =
          (ch.qos.logback.classic.Logger) LoggerFactory.getLogger( loggerName );
@@ -114,12 +118,10 @@ public class RioLogger
          logger.addAppender( fileAppender );
       }
 
-      // LOGGER - Setting of default level (DEBUG)
-     // logger.setLevel( Level.DEBUG.level );
-      logger.setLevel( Level.TRACE.level );
+      setLevel( logger, defaultLevel );
       logger.setAdditive( false ); /* set to true if root should log too */
 
-      return logger;
+      return new PKLogger( logger );
    }
 
 

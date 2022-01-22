@@ -9,10 +9,9 @@
 package frc.robot.subsystems.drive;
 
 
-import org.slf4j.Logger;
-
 import java.lang.StringBuilder;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -24,7 +23,7 @@ class DriveSignal {
 
     /** Our classes' logger **/
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(DriveSignal.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveSignal.class.getName());
 
     protected double mLeftMotor;
     protected double mRightMotor;

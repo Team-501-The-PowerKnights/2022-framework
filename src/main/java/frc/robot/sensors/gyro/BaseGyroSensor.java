@@ -8,19 +8,17 @@
 package frc.robot.sensors.gyro;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
-
 
 abstract class BaseGyroSensor implements IGyroSensor {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(BaseGyroSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(BaseGyroSensor.class.getName());
 
     /** Our sensor's name **/
     protected static final String myName = TelemetryNames.Gyro.name;

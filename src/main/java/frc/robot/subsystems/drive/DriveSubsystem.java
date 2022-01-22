@@ -16,8 +16,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.RamseteController;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
@@ -40,13 +38,14 @@ import frc.robot.sensors.gyro.GyroFactory;
 import frc.robot.sensors.gyro.IGyroSensor;
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 class DriveSubsystem extends BaseDriveSubsystem {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(DriveSubsystem.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveSubsystem.class.getName());
 
     /**
      * Drive Constants

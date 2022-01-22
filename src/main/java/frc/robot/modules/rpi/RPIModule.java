@@ -9,11 +9,11 @@
 package frc.robot.modules.rpi;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -23,7 +23,7 @@ import riolog.RioLogger;
 class RPIModule extends BaseRPIModule {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(RPIModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(RPIModule.class.getName());
 
     public RPIModule() {
         logger.info("constructing");

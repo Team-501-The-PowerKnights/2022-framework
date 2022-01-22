@@ -9,8 +9,7 @@
 package frc.robot.modules.pdp;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -18,6 +17,6 @@ abstract class BasePDPModule implements IPDPModule {
 
     /** Our classes' logger **/
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(BasePDPModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(BasePDPModule.class.getName());
 
 }

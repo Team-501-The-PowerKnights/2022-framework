@@ -9,10 +9,9 @@
 package frc.robot.utils;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.util.Color;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -29,7 +28,7 @@ public class PKColor extends Color {
 
     /* Our classes logger */
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(PKColor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PKColor.class.getName());
 
     public final String name;
 

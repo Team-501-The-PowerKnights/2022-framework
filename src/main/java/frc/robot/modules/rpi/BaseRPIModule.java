@@ -9,8 +9,7 @@
 package frc.robot.modules.rpi;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -21,6 +20,6 @@ abstract class BaseRPIModule implements IRPIModule {
 
     /** Our classes' logger **/
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(BaseRPIModule.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(BaseRPIModule.class.getName());
 
 }

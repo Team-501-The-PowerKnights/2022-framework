@@ -9,13 +9,12 @@
 package frc.robot.commands.drive;
 
 
-import org.slf4j.Logger;
-
 import frc.robot.commands.IIandTCommand;
 import frc.robot.commands.PKManualCommand;
 import frc.robot.subsystems.drive.DriveFactory;
 import frc.robot.subsystems.drive.IDriveSubsystem;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 /**
@@ -24,7 +23,7 @@ import riolog.RioLogger;
 public class IandTDriveJoystickControl extends PKManualCommand implements IIandTCommand {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(DriveJoystickControl.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveJoystickControl.class.getName());
 
     // Handle to our subsystem
     private IDriveSubsystem drive;

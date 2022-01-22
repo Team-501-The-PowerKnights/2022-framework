@@ -9,8 +9,7 @@
 package frc.robot.commands;
 
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -20,7 +19,7 @@ import riolog.RioLogger;
 public class DoNothingButton extends PKCommandBase {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(DoNothingButton.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DoNothingButton.class.getName());
 
     // Something for unique identification
     @SuppressWarnings("unused")

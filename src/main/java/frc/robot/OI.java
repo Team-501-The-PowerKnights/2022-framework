@@ -9,8 +9,6 @@
 package frc.robot;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -24,8 +22,8 @@ import frc.robot.telemetry.TelemetryNames;
 
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
-
 
 
 /**
@@ -34,7 +32,7 @@ import riolog.RioLogger;
 public class OI implements ITelemetryProvider {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(OI.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(OI.class.getName());
 
     /** Singleton instance of class for all to use **/
     private static OI ourInstance;

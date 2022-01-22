@@ -8,21 +8,20 @@
 package frc.robot.sensors.wheelcolor;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.utils.PKColor;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
 abstract class BaseWheelColorSensor implements IWheelColorSensor {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(BaseWheelColorSensor.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(BaseWheelColorSensor.class.getName());
 
     protected static final String myName = TelemetryNames.WheelColor.name;
 

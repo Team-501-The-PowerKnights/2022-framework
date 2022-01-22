@@ -9,11 +9,10 @@
 package frc.robot.commands;
 
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
 
 
@@ -23,7 +22,7 @@ import riolog.RioLogger;
 public class PKParallelCommandGroup extends ParallelCommandGroup {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(PKParallelCommandGroup.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PKParallelCommandGroup.class.getName());
 
     // FIXME - Use handle to CommandTracker class (TBW)
     // FIXME - Commands are handled differently (not through scheduler)
@@ -64,7 +63,7 @@ public class PKParallelCommandGroup extends ParallelCommandGroup {
         super.execute();
     }
 
-    protected void logExecuteStart(Logger logger) {
+    protected void logExecuteStart(PKLogger logger) {
         if (!executeOnce) {
             executeOnce = true;
             logger.trace("first execution of {}", getName());
