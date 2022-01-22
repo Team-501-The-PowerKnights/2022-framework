@@ -46,15 +46,6 @@ public final class TelemetryNames {
         public static final String totalEnergy = name + ".totalEnergy";
     }
 
-    public final class RPI {
-        public static final String name = ModuleNames.rpiName;
-
-        public static final String status = name + ".status";
-        public static final String clockSpeed = name + ".clock_speed";
-        public static final String freeMemory = name + ".free_memory";
-        public static final String socTemp = name + ".soc_temp";
-    }
-
     /***************
      * Managers
      ***************/
