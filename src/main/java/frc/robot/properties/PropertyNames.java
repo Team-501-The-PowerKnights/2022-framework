@@ -63,18 +63,6 @@ public class PropertyNames {
     }
 
     /***************
-     * Control Panel
-     ***************/
-
-    public final class Wheel {
-        public static final String name = SubsystemNames.wheelName;
-    }
-
-    public final class WheelColor {
-        public static final String name = SensorNames.wheelColorName;
-    }
-
-    /***************
      * Climber
      ***************/
 
