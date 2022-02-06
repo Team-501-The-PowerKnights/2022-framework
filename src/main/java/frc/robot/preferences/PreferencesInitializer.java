@@ -12,7 +12,6 @@ package frc.robot.preferences;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-
 import edu.wpi.first.wpilibj.Preferences;
 
 import frc.robot.preferences.PreferenceNames.*;
@@ -56,53 +55,6 @@ public class PreferencesInitializer {
             Preferences.setDouble(Drive.pid_F, 0.0);
         }
 
-        /*
-         * Turret
-         */
-
-        if (!Preferences.containsKey(Turret.pid_P)) {
-            logger.warn("{} doesn't exist; creating with default", Turret.pid_P);
-            Preferences.setDouble(Turret.pid_P, 0.0);
-        }
-
-        if (!Preferences.containsKey(Turret.pid_I)) {
-            logger.warn("{} doesn't exist; creating with default", Turret.pid_I);
-            Preferences.setDouble(Turret.pid_I, 0.0);
-        }
-
-        if (!Preferences.containsKey(Turret.pid_D)) {
-            logger.warn("{} doesn't exist; creating with default", Turret.pid_D);
-            Preferences.setDouble(Turret.pid_D, 0.0);
-        }
-
-        if (!Preferences.containsKey(Turret.pid_F)) {
-            logger.warn("{} doesn't exist; creating with default", Turret.pid_F);
-            Preferences.setDouble(Turret.pid_F, 0.0);
-        }
-
-        /*
-         * Shooter
-         */
-
-        if (!Preferences.containsKey(Shooter.pid_P)) {
-            logger.warn("{} doesn't exist; creating with default", Shooter.pid_P);
-            Preferences.setDouble(Shooter.pid_P, 0.0);
-        }
-
-        if (!Preferences.containsKey(Shooter.pid_I)) {
-            logger.warn("{} doesn't exist; creating with default", Shooter.pid_I);
-            Preferences.setDouble(Shooter.pid_I, 0.0);
-        }
-
-        if (!Preferences.containsKey(Shooter.pid_D)) {
-            logger.warn("{} doesn't exist; creating with default", Shooter.pid_D);
-            Preferences.setDouble(Shooter.pid_D, 0.0);
-        }
-
-        if (!Preferences.containsKey(Shooter.pid_F)) {
-            logger.warn("{} doesn't exist; creating with default", Shooter.pid_F);
-            Preferences.setDouble(Shooter.pid_F, 0.0);
-        }
 
         logger.info("preferences as initialized:\n");
         listPreferences();

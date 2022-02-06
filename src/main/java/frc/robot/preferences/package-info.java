@@ -6,23 +6,15 @@
 /* of this project.                                                      */
 /*-----------------------------------------------------------------------*/
 
-package frc.robot.preferences;
-
-
-import frc.robot.subsystems.SubsystemNames;
-
-
 /**
- * Add your docs here.
- */
-class PreferenceNames {
-
-    public final class Drive {
-        public static final String name = SubsystemNames.driveName;
-        public static final String pid_P = name + ".P";
-        public static final String pid_I = name + ".I";
-        public static final String pid_D = name + ".D";
-        public static final String pid_F = name + ".F";
-    }
-
-}
+ * This package contains the implementation of the interface to the WPILib
+ * <code>Preferences</code> utility.
+ * <p>
+ * More detail ...
+ * </p>
+ *
+ * @since 2022.0.0
+ * @author first.stu
+ * @version 2022.0.0
+ **/
+package frc.robot.preferences;
