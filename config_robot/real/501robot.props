@@ -1,0 +1,121 @@
+#########################################
+#########################################
+#
+# Team 501 Robot Properties
+#
+#########################################
+#########################################
+
+Robot.name = Real-Bot
+
+
+
+#########################################
+#########################################
+# Module Defines
+#########################################
+#########################################
+
+#####################
+# PDP
+#####################
+PDP.className = StubPDPModule
+
+
+
+#########################################
+#########################################
+# Sensor Defines
+#########################################
+#########################################
+
+#####################
+# Gyro
+#####################
+Gyro.className = StubGyroSensor
+
+
+#####################
+# TurretLocation
+#####################
+TurretLocation.className = StubTurretLocationSensor
+
+
+#####################
+# Vision
+#####################
+Vision.className = StubVisionSensor
+
+
+
+#########################################
+#########################################
+# Subsystem Defines
+#########################################
+#########################################
+
+#####################
+# Ballevator
+#####################
+Ballevator.className = StubBallevatorSubsystem
+Ballevator.defaultCommandName = BallevatorDoNothing
+
+
+#####################
+# Climber
+#####################
+Climber.className = StubClimberSubsystem
+Climber.defaultCommandName = ClimberDoNothing
+
+
+#####################
+# Drive
+#####################
+Drive.className = StubDriveSubsystem
+Drive.defaultCommandName = DriveDoNothing
+
+
+#####################
+# Hopper
+#####################
+Hopper.className = StubHopperSubsystem
+Hopper.defaultCommandName = HopperDoNothing
+
+
+#####################
+# Intake
+#####################
+Intake.className = StubIntakeSubsystem
+Intake.defaultCommandName = IntakeDoNothing
+
+
+#####################
+# Turret
+#####################
+Turret.className = StubTurretSubsystem
+Turret.defaultCommandName = TurretDoNothing
+
+
+#####################
+# Shooter
+#####################
+Shooter.className = StubShooterSubsystem
+Shooter.defaultCommandName = ShooterDoNothing
+
+
+
+#########################################
+#########################################
+# OI
+#########################################
+#########################################
+
+#####################
+# Driver Gamepad
+#####################
+
+
+#####################
+# Operator Gamepad
+#####################
+
