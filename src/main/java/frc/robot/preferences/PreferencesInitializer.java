@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 import edu.wpi.first.wpilibj.Preferences;
 
-import frc.robot.preferences.PreferenceNames.*;
+import frc.robot.subsystems.drive.DrivePreferences;
 
 import riolog.PKLogger;
 import riolog.RioLogger;
@@ -23,7 +23,7 @@ import riolog.RioLogger;
 /**
  * Add your docs here.
  */
-public class PreferencesInitializer {
+public final class PreferencesInitializer {
 
     /** Our classes' logger **/
     private static final PKLogger logger = RioLogger.getLogger(PreferencesInitializer.class.getName());
@@ -31,30 +31,7 @@ public class PreferencesInitializer {
     public static void initialize() {
         logger.info("initializing");
 
-        /*
-         * Drive
-         */
-
-        if (!Preferences.containsKey(Drive.pid_P)) {
-            logger.warn("{} doesn't exist; creating with default", Drive.pid_P);
-            Preferences.setDouble(Drive.pid_P, 0.0);
-        }
-
-        if (!Preferences.containsKey(Drive.pid_I)) {
-            logger.warn("{} doesn't exist; creating with default", Drive.pid_I);
-            Preferences.setDouble(Drive.pid_I, 0.0);
-        }
-
-        if (!Preferences.containsKey(Drive.pid_D)) {
-            logger.warn("{} doesn't exist; creating with default", Drive.pid_D);
-            Preferences.setDouble(Drive.pid_D, 0.0);
-        }
-
-        if (!Preferences.containsKey(Drive.pid_F)) {
-            logger.warn("{} doesn't exist; creating with default", Drive.pid_F);
-            Preferences.setDouble(Drive.pid_F, 0.0);
-        }
-
+        DrivePreferences.initialize();
 
         logger.info("preferences as initialized:\n");
         listPreferences();
