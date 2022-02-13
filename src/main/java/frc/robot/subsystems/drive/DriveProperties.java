@@ -6,19 +6,24 @@
 /* of this project.                                                      */
 /*-----------------------------------------------------------------------*/
 
-/**
- * This package contains the implementation of the interface to the WPILib
- * {@link edu.wpi.first.wpilibj.Preferences} utility.
- * <p>
- * <i>Preferences</i> are values used by the 
- * {@link edu.wpi.first.networktables.NetworkTable}
- * implementation and can be manipulated via the <i>Dashboard</i> program.
- * So they make sense for things you want to tune or otherwise interactively
- * modify on the fly.
- * </p>
- *
- * @since 2022.0.0
- * @author first.stu
- * @version 2022.0.0
- **/
-package frc.robot.preferences;
+package frc.robot.subsystems.drive;
+
+
+import frc.robot.subsystems.SubsystemNames;
+
+import riolog.PKLogger;
+import riolog.RioLogger;
+
+
+public final class DriveProperties {
+    
+    /** Our classes' logger **/
+    @SuppressWarnings("unused")
+    private static final PKLogger logger = RioLogger.getLogger(DriveProperties.class.getName());
+
+    private DriveProperties() {}
+
+    static private final String name = SubsystemNames.driveName;
+    static final String className = name + ".className";
+    
+}

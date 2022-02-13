@@ -66,8 +66,7 @@ public class OI implements ITelemetryProvider {
     private final Button driveSwapButton;
     // Only in the pits
     private final Joystick operatorStick;
-    private final Button reserved17Button;
-    private final Button reserved18Button;
+
     private OI() {
         logger.info("constructing {}", myName);
 
@@ -77,8 +76,6 @@ public class OI implements ITelemetryProvider {
         driveSwapButton = new JoystickButton(driverStick, 3);
 
         operatorStick = new Joystick(1);
-        reserved17Button = new JoystickButton(operatorStick, 17);
-        reserved18Button = new JoystickButton(operatorStick, 18);
 
         logger.info("constructed");
     }
@@ -102,9 +99,6 @@ public class OI implements ITelemetryProvider {
         /*
          * Reserved
          */
-
-        reserved17Button.whenPressed(new InvalidButton("reserved17Button"));
-        reserved18Button.whenPressed(new InvalidButton("reserved18Button"));
     }
 
     @Override

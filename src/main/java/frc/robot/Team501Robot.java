@@ -30,13 +30,8 @@ public class Team501Robot extends Robot {
    /** Our classes' logger **/
    private static final PKLogger logger = RioLogger.getLogger(Team501Robot.class.getName());
 
-   private static final String programmer = "Caleb";
-
    public Team501Robot() {
       logger.info("constructing");
-
-      SmartDashboard.putString(TelemetryNames.Misc.programmer, programmer);
-      logger.info("programmer={}", programmer);
 
       SmartDashboard.putString(TelemetryNames.Misc.codeVersion, VersionInfo.version);
       logger.info("codeVersion={}", VersionInfo.version);

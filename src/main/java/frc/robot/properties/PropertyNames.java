@@ -12,70 +12,24 @@ package frc.robot.properties;
 import frc.robot.sensors.SensorNames;
 import frc.robot.subsystems.SubsystemNames;
 
+import riolog.PKLogger;
+import riolog.RioLogger;
+
 
 /**
  * Add your docs here.
  */
-public class PropertyNames {
+public final class PropertyNames {
+
+    /** Our classes' logger **/
+    @SuppressWarnings("unused")
+    private static final PKLogger logger = RioLogger.getLogger(PropertyNames.class.getName());
+
+    private PropertyNames(){}
 
     public final class Robot {
         public static final String name = "Robot";
-    }
-
-    /***************
-     * Drive
-     ***************/
-
-    public final class Drive {
-        public static final String name = SubsystemNames.driveName;
-    }
-
-    public final class Gyro {
-        public static final String name = SensorNames.gyroName;
-    }
-
-    /***************
-     * Power Cells
-     ***************/
-
-    public final class Intake {
-        public static final String name = SubsystemNames.intakeName;
-    }
-
-    public final class Hopper {
-        public static final String name = SubsystemNames.hopperName;
-    }
-
-    public final class Ballevator {
-        public static final String name = SubsystemNames.ballevatorName;
-    }
-
-    public final class Shooter {
-        public static final String name = SubsystemNames.shooterName;
-    }
-
-    public final class Turret {
-        public static final String name = SubsystemNames.turretName;
-    }
-
-    public final class TurretPosition {
-        public static final String name = SensorNames.turretLocationName;
-    }
-
-    /***************
-     * Climber
-     ***************/
-
-    public final class Climber {
-        public static final String name = SubsystemNames.climberName;
-    }
-
-    /***************
-     * Vision
-     ***************/
-
-    public final class Vision {
-        public static final String name = SensorNames.visionName;
+        public static final String implementation = name + ".implementation";
     }
 
 }

@@ -21,12 +21,16 @@ import frc.robot.subsystems.SubsystemNames;
  **/
 public final class TelemetryNames {
 
+    private TelemetryNames() {}
+
     public final class Misc {
         public static final String name = "Misc";
 
         public static final String programmer = name + ".programmer";
         public static final String codeVersion = name + ".codeVersion";
+
         public static final String robotName = name + ".robotName";
+        public static final String robotImpl = name + ".robotImpl";
 
         public static final String fmsConnected = name + ".fmsConnected";
 
@@ -66,7 +70,6 @@ public final class TelemetryNames {
         public static final String name = "Properties";
 
         public static final String status = name + ".status";
-        public static final String robot = name + ".robot";
     }
 
     public static class Scheduler {
@@ -124,103 +127,6 @@ public final class TelemetryNames {
         public static final String yaw = name + ".yaw";
         public static final String angle = name + ".angle";
         public static final String heading = name + ".heading";
-    }
-
-    /***************
-     * Power Cells
-     ***************/
-
-    public final class Intake {
-        public static final String name = SubsystemNames.intakeName;
-
-        public static final String status = name + ".status";
-        public static final String speed = name + ".speed";
-    }
-
-    public final class Hopper {
-        public static final String name = SubsystemNames.hopperName;
-
-        public static final String status = name + ".status";
-        public static final String speed = name + ".speed";
-    }
-
-    public final class Ballevator {
-        public static final String name = SubsystemNames.ballevatorName;
-
-        public static final String status = name + ".status";
-        public static final String speed = name + ".speed";
-        public static final String atLimit = name + ".atLimit";
-    }
-
-    public final class TurretLocation {
-        public static final String name = SensorNames.turretLocationName;
-
-        public static final String status = name + ".status";
-        public static final String isFound = name + ".isFound";
-    }
-
-    public final class Turret {
-        public static final String name = SubsystemNames.turretName;
-
-        public static final String status = name + ".status";
-        public static final String angle = name + ".angle";
-        public static final String position = name + ".rawPosition";
-        public static final String isHomed = name + ".isHomed";
-        public static final String visionPIDOutput = name + ".visionPIDOutput";
-    }
-
-    public final class Shooter {
-        public static final String name = SubsystemNames.shooterName;
-
-        public static final String status = name + ".status";
-        public static final String isActive = name + ".isActive";
-        public static final String rpm = name + ".rpm";
-        public static final String targetRpm = name + ".targetRpm";
-        public static final String atTarget = name + ".atTarget";
-    }
-
-    /***************
-     * Control Panel
-     ***************/
-
-    public final class Wheel {
-        public static final String name = SubsystemNames.wheelName;
-
-        public static final String status = name + ".status";
-    }
-
-    /***************
-     * Climber
-     ***************/
-
-    public final class Climber {
-        public static final String name = SubsystemNames.climberName;
-
-        public static final String status = name + ".status";
-        public static final String topLimit = name + ".topLimit";
-        public static final String bottomLimit = name + ".bottomLimit";
-        public static final String speed = name + ".speed";
-    }
-
-    /***************
-     * Vision
-     ***************/
-
-    public final class Vision {
-        public static final String name = SensorNames.visionName;
-
-        // Set by the vision program running on R-PI
-        public static final String status = name + ".status";
-        // Running count for iterations of program
-        public static final String heart_beat = name + ".heart_beat";
-        // Valid solution?
-        public static final String locked = name + ".locked";
-        // Delta offset (+ CCW; rotate CW to fix & - CW; rotate CCW to fix)
-        public static final String angle = name + ".angle";
-        // Incremented every time
-        public static final String count = name + ".count";
-
-        public static final String enabled = name + ".enabled";
     }
 
 }

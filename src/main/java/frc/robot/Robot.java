@@ -169,7 +169,7 @@ public class Robot extends TimedRobot {
     private void createAutoChooser() {
         autoChooser = new SendableChooser<>();
 
-        autoChooser.addOption("Do Nothing", new DoNothing());
+        autoChooser.setDefaultOption("Do Nothing", new DoNothing());
 
         SmartDashboard.putData("Auto Mode", autoChooser);
     }
@@ -196,7 +196,7 @@ public class Robot extends TimedRobot {
         tlmMgr.sendTelemetry();
 
         // Add an indicator about what auto command is current selected
-        SmartDashboard.putBoolean(TelemetryNames.Misc.realAuto,
+       SmartDashboard.putBoolean(TelemetryNames.Misc.realAuto,
                 !autoChooser.getSelected().getName().equalsIgnoreCase("DoNothing"));
     }
 

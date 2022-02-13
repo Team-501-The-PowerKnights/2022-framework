@@ -18,14 +18,21 @@ import riolog.RioLogger;
 
 
 /**
- * Add your docs here.
+ * Defines the names and values of properties for this package.
+ * <p>
+ * The name uses dot notation for the hierarchy. The first part is
+ * the name of the subsystem and the second is the name of the
+ * preference retreivable from the
+ * {@link edu.wpi.first.wpilibj.Preferences}.
+ *
+ * @see edu.wpi.first.networktables.NetworkTable
  */
 public final class DrivePreferences {
 
     /** Our classes' logger **/
     private static final PKLogger logger = RioLogger.getLogger(DrivePreferences.class.getName());
 
-    static final String name = SubsystemNames.driveName;
+    static private final String name = SubsystemNames.driveName;
     static final String pid_P = name + ".P";
     static final String pid_I = name + ".I";
     static final String pid_D = name + ".D";

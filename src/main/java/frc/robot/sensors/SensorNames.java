@@ -18,8 +18,4 @@ public class SensorNames {
 
     public static final String gyroName = "Gyro";
 
-    public static final String turretLocationName = "TurretLocation";
-
-    public static final String visionName = "Vision";
-
 }

@@ -63,6 +63,8 @@ public class PropertiesManager {
         // Put name of robot onto dashboard
         String robotName = ourInstance.getProperties(PropertyNames.Robot.name).getString("name");
         SmartDashboard.putString(TelemetryNames.Misc.robotName, robotName);
+        String robotImpl = ourInstance.getProperties(PropertyNames.Robot.name).getString("implementation");
+        SmartDashboard.putString(TelemetryNames.Misc.robotImpl, robotImpl);
 
         SmartDashboard.putNumber(TelemetryNames.Properties.status, PKStatus.success.tlmValue);
     }
