@@ -1,16 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot.subsystems.drive;
 
-import org.slf4j.Logger;
 
 import frc.robot.utils.HelperFunctions;
+
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * Helper class to implement "Cheesy Drive". "Cheesy Drive" simply means that
@@ -24,7 +27,7 @@ class DriveHelper {
 
    /** Our classes' logger **/
    @SuppressWarnings("unused")
-   private static final Logger logger = RioLogger.getLogger(DriveHelper.class.getName());
+   private static final PKLogger logger = RioLogger.getLogger(DriveHelper.class.getName());
 
    private static final double kThrottleDeadband = 0.0;
    private static final double kWheelDeadband = 0.0;

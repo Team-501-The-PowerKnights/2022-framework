@@ -1,17 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot.subsystems.drive;
 
-import org.slf4j.Logger;
 
 import java.lang.StringBuilder;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * A drivetrain command consisting of the left, right motor settings and whether
@@ -21,7 +23,7 @@ class DriveSignal {
 
     /** Our classes' logger **/
     @SuppressWarnings("unused")
-    private static final Logger logger = RioLogger.getLogger(DriveSignal.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(DriveSignal.class.getName());
 
     protected double mLeftMotor;
     protected double mRightMotor;

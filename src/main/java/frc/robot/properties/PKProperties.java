@@ -1,17 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot.properties;
 
+
 import java.util.Map;
 
-import org.slf4j.Logger;
-
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * Add your docs here.
@@ -19,7 +21,7 @@ import riolog.RioLogger;
 public class PKProperties {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(PKProperties.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PKProperties.class.getName());
 
     // "Owner" of the properties (mostly for logging)
     private final String owner;
@@ -71,18 +73,31 @@ public class PKProperties {
      */
     private String getProperty(String key) {
         String value = props.get(key);
-        if ((value == null) || value.isEmpty()) {
-            logger.error("{}'s property key={} is not defined", owner, key);
+        if ( value == null ) {
+            logger.error("{}'s property key={} is missing / not defined", owner, key);
             value = "";
+        }
+        else if ( value.isEmpty() ) {
+            logger.warn("{}'s property key={} is defined but empty value", owner, key);
         }
         return value;
     }
 
-    public void listProperties() {
+    public String listProperties() {
         StringBuilder buf = new StringBuilder();
         buf.append("owner ").append(owner).append(" properties:");
         for (String key : props.keySet()) {
-            buf.append("\n..."); // logger gobbles up leading spaces
+            buf.append("  ");
+            buf.append(key).append(" = ").append(props.get(key));
+        }
+        return buf.toString();
+    }
+
+    public void logProperties() {
+        StringBuilder buf = new StringBuilder();
+        buf.append("owner ").append(owner).append(" properties:");
+        for (String key : props.keySet()) {
+            buf.append("  ");
             buf.append(key).append(" = ").append(props.get(key));
         }
         logger.info(buf.toString());

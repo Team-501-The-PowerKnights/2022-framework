@@ -1,13 +1,13 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot;
 
-import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
@@ -22,7 +22,9 @@ import frc.robot.telemetry.TelemetryNames;
 
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * Add your docs here.
@@ -30,7 +32,7 @@ import riolog.RioLogger;
 public class OI implements ITelemetryProvider {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(OI.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(OI.class.getName());
 
     /** Singleton instance of class for all to use **/
     private static OI ourInstance;
@@ -64,8 +66,7 @@ public class OI implements ITelemetryProvider {
     private final Button driveSwapButton;
     // Only in the pits
     private final Joystick operatorStick;
-    private final Button reserved17Button;
-    private final Button reserved18Button;
+
     private OI() {
         logger.info("constructing {}", myName);
 
@@ -75,8 +76,6 @@ public class OI implements ITelemetryProvider {
         driveSwapButton = new JoystickButton(driverStick, 3);
 
         operatorStick = new Joystick(1);
-        reserved17Button = new JoystickButton(operatorStick, 17);
-        reserved18Button = new JoystickButton(operatorStick, 18);
 
         logger.info("constructed");
     }
@@ -100,9 +99,6 @@ public class OI implements ITelemetryProvider {
         /*
          * Reserved
          */
-
-        reserved17Button.whenPressed(new InvalidButton("reserved17Button"));
-        reserved18Button.whenPressed(new InvalidButton("reserved18Button"));
     }
 
     @Override

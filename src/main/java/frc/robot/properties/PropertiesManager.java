@@ -1,11 +1,13 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot.properties;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,17 +18,17 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import static java.util.stream.Collectors.*;
 import static java.util.Map.Entry.*;
 
-import org.slf4j.Logger;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.properties.PropertyNames.Robot;
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * Add your docs here.
@@ -34,7 +36,7 @@ import riolog.RioLogger;
 public class PropertiesManager {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(PropertiesManager.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PropertiesManager.class.getName());
 
     /* Default fully qualified file name */
     public static final String defaultFileName = "/home/lvuser/501robot.props";
@@ -42,6 +44,12 @@ public class PropertiesManager {
     private static PropertiesManager ourInstance;
 
     private static String myName = "Props";
+
+    /** Name of the robot */
+    private static String robotName;
+    /** Name of the implementation of robot */
+    private static String robotImpl;
+
 
     public static void constructInstance() {
         constructInstance(defaultFileName);
@@ -58,9 +66,12 @@ public class PropertiesManager {
 
         ourInstance = new PropertiesManager(fileName);
 
-        // Put name of robot onto dashboard
-        String robotName = ourInstance.getProperties(PropertyNames.Robot.name).getString("name");
+        // Put robot info into dashboard (tests successful access)
+        PKProperties props = ourInstance.getProperties(PropertyNames.Robot.name);
+        robotName = props.getString(Robot.robotName);
         SmartDashboard.putString(TelemetryNames.Misc.robotName, robotName);
+        robotImpl = props.getString(Robot.implementation);
+        SmartDashboard.putString(TelemetryNames.Misc.robotImpl, robotImpl);
 
         SmartDashboard.putNumber(TelemetryNames.Properties.status, PKStatus.success.tlmValue);
     }
@@ -132,6 +143,14 @@ public class PropertiesManager {
         ownerProperties.get(ownerKey).put(propKey, value);
     }
 
+    public String getRobotName() {
+        return robotName;
+    }
+
+    public String getImpl() {
+        return robotImpl;
+    }
+
     public PKProperties getProperties(String owner) {
         if (ownerProperties.containsKey(owner)) {
             return new PKProperties(owner, ownerProperties.get(owner));
@@ -141,10 +160,23 @@ public class PropertiesManager {
         }
     }
 
-    public void listProperties() {
+    public String listProperties() {
+        StringBuilder buf = new StringBuilder();
+        buf.append(" properties:");
         for (String owner : ownerProperties.keySet()) {
-            getProperties(owner).listProperties();
+            buf.append(getProperties(owner).listProperties());
         }
+        return buf.toString();
+    }
+
+    public void logProperties(PKLogger logger) {
+        StringBuilder buf = new StringBuilder();
+        buf.append(" properties:");
+        for (String owner : ownerProperties.keySet()) {
+            buf.append("\n..."); // logger gobbles up leading spaces
+            buf.append(getProperties(owner).listProperties());
+        }
+        logger.info(buf.toString());
     }
 
 }

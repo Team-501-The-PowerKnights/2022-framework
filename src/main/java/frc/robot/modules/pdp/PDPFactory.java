@@ -1,13 +1,13 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot.modules.pdp;
 
-import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,7 +18,9 @@ import frc.robot.properties.PropertiesManager;
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.utils.PKStatus;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * 
@@ -26,12 +28,15 @@ import riolog.RioLogger;
 public class PDPFactory {
 
     /** Our classes' logger **/
-    private static final Logger logger = RioLogger.getLogger(PDPFactory.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(PDPFactory.class.getName());
 
     /** Singleton instance of class for all to use **/
     private static IModule ourInstance;
     /** Name of our module **/
     private static final String myName = ModuleNames.pdpName;
+
+    /** Properties for subsystem */
+    private static PKProperties props;
 
     /**
      * Constructs instance of the module. Assumed to be called before any usage of
@@ -45,14 +50,20 @@ public class PDPFactory {
             throw new IllegalStateException(myName + " Already Constructed");
         }
 
-        PKProperties props = PropertiesManager.getInstance().getProperties(myName);
-        props.listProperties();
+        props = PropertiesManager.getInstance().getProperties(myName);
+        logger.info(props.listProperties());
+        String className = props.getString("className");
 
-        loadImplementationClass(props.getString("className"));
+        loadImplementationClass(className);
     }
 
     private static void loadImplementationClass(String myClassName) {
         String myPkgName = PDPFactory.class.getPackage().getName();
+        if ( myClassName.isEmpty() )
+        {
+            logger.info("no class specified; go with subsystem default");
+            myClassName = new StringBuilder().append(PropertiesManager.getInstance().getImpl()).append(myName).append("Subsystem").toString();
+        }
         String classToLoad = new StringBuilder().append(myPkgName).append(".").append(myClassName).toString();
         logger.debug("class to load: {}", classToLoad);
 
@@ -69,6 +80,7 @@ public class PDPFactory {
             ourInstance = new StubPDPModule();
             SmartDashboard.putNumber(TelemetryNames.PDP.status, PKStatus.degraded.tlmValue);
         }
+        SmartDashboard.putString(TelemetryNames.PDP.implClass, ourInstance.getClass().getSimpleName());
     }
 
     /**

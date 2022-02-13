@@ -1,20 +1,22 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
 
 package frc.robot;
 
-import org.slf4j.Logger;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import frc.robot.config.CodeVersionInfo;
+import frc.robot.config.VersionInfo;
 import frc.robot.telemetry.TelemetryNames;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * This class is used to provide a wrapper on the WPILib stuff, and a way to get
@@ -26,18 +28,13 @@ import riolog.RioLogger;
 public class Team501Robot extends Robot {
 
    /** Our classes' logger **/
-   private static final Logger logger = RioLogger.getLogger(Team501Robot.class.getName());
-
-   private static final String programmer = "Caleb";
+   private static final PKLogger logger = RioLogger.getLogger(Team501Robot.class.getName());
 
    public Team501Robot() {
       logger.info("constructing");
 
-      SmartDashboard.putString(TelemetryNames.Misc.programmer, programmer);
-      logger.info("programmer={}", programmer);
-
-      SmartDashboard.putString(TelemetryNames.Misc.codeVersion, CodeVersionInfo.version);
-      logger.info("codeVersion={}", CodeVersionInfo.version);
+      SmartDashboard.putString(TelemetryNames.Misc.codeVersion, VersionInfo.version);
+      logger.info("codeVersion={}", VersionInfo.version);
 
       logger.info("constructed");
    }

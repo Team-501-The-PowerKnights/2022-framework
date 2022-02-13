@@ -1,15 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2020 Team 501 - The PowerKnights. All Rights Reserved.       */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the 2020 Team 501 - The PowerKnights BSD license    */
-/* file in the root directory of the project.                                 */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* Copyright (c) Team 501 - The PowerKnights. All Rights Reserved.       */
+/* Open Source Software - may be modified and shared by other FRC teams  */
+/* under the terms of the Team501 license. The code must be accompanied  */
+/* by the Team 501 - The PowerKnights license file in the root directory */
+/* of this project.                                                      */
+/*-----------------------------------------------------------------------*/
+
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
 
-import java.util.List;
 
-import org.slf4j.Logger;
+import java.util.List;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -33,7 +37,9 @@ import frc.robot.utils.PKStatus;
 import frc.robot.subsystems.ISubsystem;
 import frc.robot.subsystems.SubsystemFactory;
 
+import riolog.PKLogger;
 import riolog.RioLogger;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -45,7 +51,7 @@ import riolog.RioLogger;
 public class Robot extends TimedRobot {
 
     /* Our classes logger */
-    private static final Logger logger = RioLogger.getLogger(Robot.class.getName());
+    private static final PKLogger logger = RioLogger.getLogger(Robot.class.getName());
 
     private OI oi;
 
@@ -150,6 +156,9 @@ public class Robot extends TimedRobot {
 
         PreferencesInitializer.initialize();
 
+        logger.info("Preferences as initialized:");
+        PreferencesInitializer.logPreferences(logger);
+
         SmartDashboard.putNumber(Preferences.status, PKStatus.success.tlmValue);
     }
 
@@ -157,13 +166,13 @@ public class Robot extends TimedRobot {
         // Reads and stores all the properties
         PropertiesManager.constructInstance();
 
-        PropertiesManager.getInstance().listProperties();
+        PropertiesManager.getInstance().logProperties(logger);
     }
 
     private void createAutoChooser() {
         autoChooser = new SendableChooser<>();
 
-        autoChooser.addOption("Do Nothing", new DoNothing());
+        autoChooser.setDefaultOption("Do Nothing", new DoNothing());
 
         SmartDashboard.putData("Auto Mode", autoChooser);
     }
@@ -190,7 +199,7 @@ public class Robot extends TimedRobot {
         tlmMgr.sendTelemetry();
 
         // Add an indicator about what auto command is current selected
-        SmartDashboard.putBoolean(TelemetryNames.Misc.realAuto,
+       SmartDashboard.putBoolean(TelemetryNames.Misc.realAuto,
                 !autoChooser.getSelected().getName().equalsIgnoreCase("DoNothing"));
     }
 
@@ -248,7 +257,7 @@ public class Robot extends TimedRobot {
      **/
     private void logPreferences() {
         logger.info("preferences:");
-        PreferencesInitializer.listPreferences();
+        PreferencesInitializer.logPreferences(logger);
     }
 
     /**
