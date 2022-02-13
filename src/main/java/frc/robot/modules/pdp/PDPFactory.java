@@ -48,7 +48,7 @@ public class PDPFactory {
         }
 
         PKProperties props = PropertiesManager.getInstance().getProperties(myName);
-        props.listProperties();
+        logger.info(props.listProperties());
 
         loadImplementationClass(props.getString("className"));
     }

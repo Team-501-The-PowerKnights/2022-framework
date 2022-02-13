@@ -33,13 +33,10 @@ public final class PreferencesInitializer {
 
         DrivePreferences.initialize();
 
-        logger.info("preferences as initialized:\n");
-        listPreferences();
-
         logger.info("initialized");
     }
 
-    public static void listPreferences() {
+    public static void logPreferences(PKLogger logger) {
         StringBuilder buf = new StringBuilder();
         buf.append(" preferences:");
         for (String key : Preferences.getKeys().stream().collect(Collectors.toCollection(ArrayList::new))) {

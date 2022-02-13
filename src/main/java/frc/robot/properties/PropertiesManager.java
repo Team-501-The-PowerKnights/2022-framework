@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.*;
 import static java.util.Map.Entry.*;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import frc.robot.properties.PropertyNames.Robot;
 import frc.robot.telemetry.TelemetryNames;
 import frc.robot.utils.PKStatus;
 
@@ -45,6 +45,12 @@ public class PropertiesManager {
 
     private static String myName = "Props";
 
+    /** Name of the robot */
+    public static String robotName;
+    /** Name of the implementation of robot */
+    public static String robotImpl;
+
+
     public static void constructInstance() {
         constructInstance(defaultFileName);
     }
@@ -60,10 +66,11 @@ public class PropertiesManager {
 
         ourInstance = new PropertiesManager(fileName);
 
-        // Put name of robot onto dashboard
-        String robotName = ourInstance.getProperties(PropertyNames.Robot.name).getString("name");
+        // Put robot info into dashboard (tests successful access)
+        PKProperties props = ourInstance.getProperties(PropertyNames.Robot.name);
+        robotName = props.getString(Robot.robotName);
         SmartDashboard.putString(TelemetryNames.Misc.robotName, robotName);
-        String robotImpl = ourInstance.getProperties(PropertyNames.Robot.name).getString("implementation");
+        robotImpl = props.getString(Robot.implementation);
         SmartDashboard.putString(TelemetryNames.Misc.robotImpl, robotImpl);
 
         SmartDashboard.putNumber(TelemetryNames.Properties.status, PKStatus.success.tlmValue);
@@ -136,6 +143,15 @@ public class PropertiesManager {
         ownerProperties.get(ownerKey).put(propKey, value);
     }
 
+    // public String getRobotName() {
+    //     String owner = PropertyNames.Robot.name;
+    //     return getProperties(owner);
+    // }
+
+    // public String getImplementation() {
+    //     String owner = PropertyNames.Robot.name;
+    // }
+
     public PKProperties getProperties(String owner) {
         if (ownerProperties.containsKey(owner)) {
             return new PKProperties(owner, ownerProperties.get(owner));
@@ -145,10 +161,23 @@ public class PropertiesManager {
         }
     }
 
-    public void listProperties() {
+    public String listProperties() {
+        StringBuilder buf = new StringBuilder();
+        buf.append(" properties:");
         for (String owner : ownerProperties.keySet()) {
-            getProperties(owner).listProperties();
+            buf.append(getProperties(owner).listProperties());
         }
+        return buf.toString();
+    }
+
+    public void logProperties(PKLogger logger) {
+        StringBuilder buf = new StringBuilder();
+        buf.append(" properties:");
+        for (String owner : ownerProperties.keySet()) {
+            buf.append("\n..."); // logger gobbles up leading spaces
+            buf.append(getProperties(owner).listProperties());
+        }
+        logger.info(buf.toString());
     }
 
 }

@@ -48,13 +48,23 @@ public class DriveFactory {
         }
 
         PKProperties props = PropertiesManager.getInstance().getProperties(myName);
-        props.listProperties();
+        logger.info(props.listProperties());
+        String className = props.getString("className");
 
-        loadImplementationClass(props.getString("className"));
+        loadImplementationClass(className);
     }
 
     private static void loadImplementationClass(String myClassName) {
         String myPkgName = DriveFactory.class.getPackage().getName();
+        // if ( myClassName.isEmpty() )
+        // {
+        //     logger.info("no class specified; go with subsystem default");
+        //     myClassName = new StringBuilder().append()
+        // }
+        // else
+        // {
+
+        // }
         String classToLoad = new StringBuilder().append(myPkgName).append(".").append(myClassName).toString();
         logger.debug("class to load: {}", classToLoad);
 

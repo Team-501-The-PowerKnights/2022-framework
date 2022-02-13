@@ -80,11 +80,21 @@ public class PKProperties {
         return value;
     }
 
-    public void listProperties() {
+    public String listProperties() {
         StringBuilder buf = new StringBuilder();
         buf.append("owner ").append(owner).append(" properties:");
         for (String key : props.keySet()) {
-            buf.append("\n..."); // logger gobbles up leading spaces
+            buf.append("  "); // logger gobbles up leading spaces
+            buf.append(key).append(" = ").append(props.get(key));
+        }
+        return buf.toString();
+    }
+
+    public void logProperties() {
+        StringBuilder buf = new StringBuilder();
+        buf.append("owner ").append(owner).append(" properties:");
+        for (String key : props.keySet()) {
+            buf.append("  "); // logger gobbles up leading spaces
             buf.append(key).append(" = ").append(props.get(key));
         }
         logger.info(buf.toString());

@@ -156,6 +156,9 @@ public class Robot extends TimedRobot {
 
         PreferencesInitializer.initialize();
 
+        logger.info("Preferences as initialized:");
+        PreferencesInitializer.logPreferences(logger);
+
         SmartDashboard.putNumber(Preferences.status, PKStatus.success.tlmValue);
     }
 
@@ -163,7 +166,7 @@ public class Robot extends TimedRobot {
         // Reads and stores all the properties
         PropertiesManager.constructInstance();
 
-        PropertiesManager.getInstance().listProperties();
+        PropertiesManager.getInstance().logProperties(logger);
     }
 
     private void createAutoChooser() {
@@ -254,7 +257,7 @@ public class Robot extends TimedRobot {
      **/
     private void logPreferences() {
         logger.info("preferences:");
-        PreferencesInitializer.listPreferences();
+        PreferencesInitializer.logPreferences(logger);
     }
 
     /**

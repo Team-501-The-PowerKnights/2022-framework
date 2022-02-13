@@ -9,9 +9,6 @@
 package frc.robot.properties;
 
 
-import frc.robot.sensors.SensorNames;
-import frc.robot.subsystems.SubsystemNames;
-
 import riolog.PKLogger;
 import riolog.RioLogger;
 
@@ -29,7 +26,8 @@ public final class PropertyNames {
 
     public final class Robot {
         public static final String name = "Robot";
-        public static final String implementation = name + ".implementation";
+        public static final String robotName = "robotName";
+        public static final String implementation = "implementation";
     }
 
 }

@@ -6,7 +6,8 @@
 #########################################
 #########################################
 
-Robot.name = Proto-Bot
+Robot.robotName = Proto-Bot
+Robot.implementation = Proto
 
 
 

@@ -6,7 +6,7 @@
 #########################################
 #########################################
 
-Robot.name = Suitcase-Bot
+Robot.robotName = Suitcase-Bot
 Robot.implementation = Suitcase
 
 

@@ -6,7 +6,8 @@
 #########################################
 #########################################
 
-Robot.name = Real-Bot
+Robot.robotName = Real-Bot
+Robot.implementation = Real
 
 
 
