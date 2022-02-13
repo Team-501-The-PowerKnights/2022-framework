@@ -34,6 +34,9 @@ public class GyroFactory {
     /** Name of our subsystem **/
     private static final String myName = SensorNames.gyroName;
 
+    /** Properties for subsystem */
+    private static PKProperties props;
+
     /**
      * Constructs instance of the sensor. Assumed to be called before any usage of
      * the sensor; and verifies only called once. Allows controlled startup
@@ -46,14 +49,20 @@ public class GyroFactory {
             throw new IllegalStateException(myName + " Already Constructed");
         }
 
-        PKProperties props = PropertiesManager.getInstance().getProperties(myName);
+        props = PropertiesManager.getInstance().getProperties(myName);
         logger.info(props.listProperties());
+        String className = props.getString("className");
 
-        loadImplementationClass(props.getString("className"));
+        loadImplementationClass(className);
     }
 
     private static void loadImplementationClass(String myClassName) {
         String myPkgName = GyroFactory.class.getPackage().getName();
+        if ( myClassName.isEmpty() )
+        {
+            logger.info("no class specified; go with subsystem default");
+            myClassName = new StringBuilder().append(PropertiesManager.getInstance().getImpl()).append(myName).append("Subsystem").toString();
+        }
         String classToLoad = new StringBuilder().append(myPkgName).append(".").append(myClassName).toString();
         logger.debug("class to load {}", classToLoad);
 
@@ -70,6 +79,7 @@ public class GyroFactory {
             ourInstance = new StubGyroSensor();
             SmartDashboard.putNumber(TelemetryNames.Gyro.status, PKStatus.degraded.tlmValue);
         }
+        SmartDashboard.putString(TelemetryNames.Gyro.implClass, ourInstance.getClass().getSimpleName());
     }
 
     /**

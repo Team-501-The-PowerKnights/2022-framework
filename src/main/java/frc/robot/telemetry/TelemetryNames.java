@@ -38,19 +38,6 @@ public final class TelemetryNames {
     }
 
     /***************
-     * Modules
-     ***************/
-
-    public final class PDP {
-        public static final String name = ModuleNames.pdpName;
-
-        public static final String status = name + ".status";
-        public static final String busVoltage = name + ".busVoltage";
-        public static final String totalCurrent = name + ".totalCurrent";
-        public static final String totalEnergy = name + ".totalEnergy";
-    }
-
-    /***************
      * Managers
      ***************/
 
@@ -106,27 +93,50 @@ public final class TelemetryNames {
     }
 
     /***************
-     * Drive
+     * Modules
+     ***************/
+
+    public final class PDP {
+        public static final String name = ModuleNames.pdpName;
+
+        public static final String status = name + ".status";
+        public static final String implClass = name + ".implClass";
+        
+        public static final String busVoltage = name + ".busVoltage";
+        public static final String totalCurrent = name + ".totalCurrent";
+        public static final String totalEnergy = name + ".totalEnergy";
+    }
+
+    /***************
+     * Sensors
+     ***************/
+
+    public final class Gyro {
+        public static final String name = SensorNames.gyroName;
+
+        public static final String status = name + ".status";
+        public static final String implClass = name + ".implClass";
+
+        public static final String roll = name + ".roll";
+        public static final String pitch = name + ".pitch";
+        public static final String yaw = name + ".yaw";
+        public static final String angle = name + ".angle";
+        public static final String heading = name + ".heading";
+    }
+
+    /***************
+     * Subsystems
      ***************/
 
     public final class Drive {
         public static final String name = SubsystemNames.driveName;
 
         public static final String status = name + ".status";
+        public static final String implClass = name + ".implClass";
+
         public static final String encoderClicks = name + ".encoderClicks";
         public static final String distanceClicks = name + ".distanceClicks";
         public static final String targetClicks = name + ".targetClicks";
-    }
-
-    public final class Gyro {
-        public static final String name = SensorNames.gyroName;
-
-        public static final String status = name + ".status";
-        public static final String roll = name + ".roll";
-        public static final String pitch = name + ".pitch";
-        public static final String yaw = name + ".yaw";
-        public static final String angle = name + ".angle";
-        public static final String heading = name + ".heading";
     }
 
 }

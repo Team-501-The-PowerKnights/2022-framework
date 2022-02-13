@@ -21,6 +21,7 @@ Robot.implementation = Real
 # PDP
 #####################
 PDP.className = StubPDPModule
+#PDP.className =
 
 
 
@@ -34,18 +35,21 @@ PDP.className = StubPDPModule
 # Gyro
 #####################
 Gyro.className = StubGyroSensor
+#Gyro.className =
 
 
 #####################
 # TurretLocation
 #####################
 TurretLocation.className = StubTurretLocationSensor
+#TurretLocation.className =
 
 
 #####################
 # Vision
 #####################
 Vision.className = StubVisionSensor
+#Vision.className =
 
 
 
@@ -59,6 +63,7 @@ Vision.className = StubVisionSensor
 # Ballevator
 #####################
 Ballevator.className = StubBallevatorSubsystem
+#Ballevator.className =
 Ballevator.defaultCommandName = BallevatorDoNothing
 
 
@@ -66,6 +71,7 @@ Ballevator.defaultCommandName = BallevatorDoNothing
 # Climber
 #####################
 Climber.className = StubClimberSubsystem
+#Climber.className =
 Climber.defaultCommandName = ClimberDoNothing
 
 
@@ -73,6 +79,7 @@ Climber.defaultCommandName = ClimberDoNothing
 # Drive
 #####################
 Drive.className = StubDriveSubsystem
+#Drive.className =
 Drive.defaultCommandName = DriveDoNothing
 
 
@@ -80,6 +87,7 @@ Drive.defaultCommandName = DriveDoNothing
 # Hopper
 #####################
 Hopper.className = StubHopperSubsystem
+#Hopper.className =
 Hopper.defaultCommandName = HopperDoNothing
 
 
@@ -87,6 +95,7 @@ Hopper.defaultCommandName = HopperDoNothing
 # Intake
 #####################
 Intake.className = StubIntakeSubsystem
+#Intake.className =
 Intake.defaultCommandName = IntakeDoNothing
 
 
@@ -94,6 +103,7 @@ Intake.defaultCommandName = IntakeDoNothing
 # Turret
 #####################
 Turret.className = StubTurretSubsystem
+#Turret.className =
 Turret.defaultCommandName = TurretDoNothing
 
 
@@ -101,6 +111,7 @@ Turret.defaultCommandName = TurretDoNothing
 # Shooter
 #####################
 Shooter.className = StubShooterSubsystem
+#Shooter.className =
 Shooter.defaultCommandName = ShooterDoNothing
 
 

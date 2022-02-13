@@ -73,9 +73,12 @@ public class PKProperties {
      */
     private String getProperty(String key) {
         String value = props.get(key);
-        if ((value == null) || value.isEmpty()) {
-            logger.error("{}'s property key={} is not defined", owner, key);
+        if ( value == null ) {
+            logger.error("{}'s property key={} is missing / not defined", owner, key);
             value = "";
+        }
+        else if ( value.isEmpty() ) {
+            logger.warn("{}'s property key={} is defined but empty value", owner, key);
         }
         return value;
     }
@@ -84,7 +87,7 @@ public class PKProperties {
         StringBuilder buf = new StringBuilder();
         buf.append("owner ").append(owner).append(" properties:");
         for (String key : props.keySet()) {
-            buf.append("  "); // logger gobbles up leading spaces
+            buf.append("  ");
             buf.append(key).append(" = ").append(props.get(key));
         }
         return buf.toString();
@@ -94,7 +97,7 @@ public class PKProperties {
         StringBuilder buf = new StringBuilder();
         buf.append("owner ").append(owner).append(" properties:");
         for (String key : props.keySet()) {
-            buf.append("  "); // logger gobbles up leading spaces
+            buf.append("  ");
             buf.append(key).append(" = ").append(props.get(key));
         }
         logger.info(buf.toString());

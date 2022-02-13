@@ -21,6 +21,7 @@ Robot.implementation = Suitcase
 # PDP
 #####################
 PDP.className = StubPDPModule
+#PDP.className =
 
 
 
@@ -34,6 +35,7 @@ PDP.className = StubPDPModule
 # Gyro
 #####################
 Gyro.className = StubGyroSensor
+#Gyro.className =
 
 
 
@@ -47,6 +49,7 @@ Gyro.className = StubGyroSensor
 # Drive
 #####################
 Drive.className = StubDriveSubsystem
+#Drive.className =
 Drive.defaultCommandName = DriveDoNothing
 
 

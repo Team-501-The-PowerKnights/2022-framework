@@ -46,9 +46,9 @@ public class PropertiesManager {
     private static String myName = "Props";
 
     /** Name of the robot */
-    public static String robotName;
+    private static String robotName;
     /** Name of the implementation of robot */
-    public static String robotImpl;
+    private static String robotImpl;
 
 
     public static void constructInstance() {
@@ -143,14 +143,13 @@ public class PropertiesManager {
         ownerProperties.get(ownerKey).put(propKey, value);
     }
 
-    // public String getRobotName() {
-    //     String owner = PropertyNames.Robot.name;
-    //     return getProperties(owner);
-    // }
+    public String getRobotName() {
+        return robotName;
+    }
 
-    // public String getImplementation() {
-    //     String owner = PropertyNames.Robot.name;
-    // }
+    public String getImpl() {
+        return robotImpl;
+    }
 
     public PKProperties getProperties(String owner) {
         if (ownerProperties.containsKey(owner)) {
