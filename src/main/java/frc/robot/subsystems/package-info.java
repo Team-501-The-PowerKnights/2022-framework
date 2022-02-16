@@ -19,9 +19,9 @@
  * <code>XxxxSubsystem</code>
  * <code>XxxxFactory</code>
  * <code>XxxxPreferences</code>
- * (2) Edit <code>PreferencesInitializer<code> to add the 
- * <code>initialize()<code> call to the 
- * subsystem's <code>Preferences<code> class.
+ * (2) Edit <code>PreferencesInitializer</code> to add the 
+ * <code>initialize()</code> call to the 
+ * subsystem's <code>Preferences</code> class.
  * </p>
  *
  * @since 2022.0.0
